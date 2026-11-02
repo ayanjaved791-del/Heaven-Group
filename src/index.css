@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+html,
+body {
+  margin: 0;
+  background: #fff;
+}
+.reveal {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+  transition:
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: transform, opacity;
+}
+.reveal[data-shown="false"] {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+}
+.reveal-blur[data-shown="false"] {
+  filter: blur(6px);
+  transform: translate3d(0, 12px, 0);
+}
+.reveal-scale[data-shown="false"] {
+  transform: scale(0.97);
+}
+.reveal-left[data-shown="false"] {
+  transform: translate3d(-18px, 0, 0);
+}
+.reveal-right[data-shown="false"] {
+  transform: translate3d(18px, 0, 0);
+}
+.reveal[data-shown="true"] {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
